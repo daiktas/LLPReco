@@ -364,7 +364,6 @@ NANOProducer::produce(edm::Event& iEvent, const edm::EventSetup& iSetup)
 
     for (unsigned int itag= 0; itag < ntags; itag++){
         const auto& features = tag_infos->at(itag).features();
-        const auto& tag_info_features = features.tag_info_features;
 
         unsigned int nmu = features.mu_features.size();
         unsigned int nelec = features.elec_features.size();
@@ -427,15 +426,15 @@ NANOProducer::produce(edm::Event& iEvent, const edm::EventSetup& iSetup)
         eventShapeC.push_back(features.jet_features.eventShapeC);
         eventShapeD.push_back(features.jet_features.eventShapeD);
 
-        trackSumJetEtRatio.push_back(tag_info_features.csv_trackSumJetEtRatio);
-        trackSumJetDeltaR.push_back(tag_info_features.csv_trackSumJetDeltaR);
-        trackSip2dValAboveCharm.push_back(tag_info_features.csv_trackSip2dValAboveCharm);
-        trackSip2dSigAboveCharm.push_back(tag_info_features.csv_trackSip2dSigAboveCharm);
-        trackSip3dValAboveCharm.push_back(tag_info_features.csv_trackSip3dValAboveCharm);
-        trackSip3dSigAboveCharm.push_back(tag_info_features.csv_trackSip3dSigAboveCharm);
-        jetNSelectedTracks.push_back(tag_info_features.csv_jetNSelectedTracks);
-        jetNTracksEtaRel.push_back(tag_info_features.csv_jetNTracksEtaRel);
-        vertexCategory.push_back(tag_info_features.csv_vertexCategory);
+        trackSumJetEtRatio.push_back(features.jet_features.csv_trackSumJetEtRatio);
+        trackSumJetDeltaR.push_back(features.jet_features.csv_trackSumJetDeltaR);
+        trackSip2dValAboveCharm.push_back(features.jet_features.csv_trackSip2dValAboveCharm);
+        trackSip2dSigAboveCharm.push_back(features.jet_features.csv_trackSip2dSigAboveCharm);
+        trackSip3dValAboveCharm.push_back(features.jet_features.csv_trackSip3dValAboveCharm);
+        trackSip3dSigAboveCharm.push_back(features.jet_features.csv_trackSip3dSigAboveCharm);
+        jetNSelectedTracks.push_back(features.jet_features.csv_jetNSelectedTracks);
+        jetNTracksEtaRel.push_back(features.jet_features.csv_jetNTracksEtaRel);
+        vertexCategory.push_back(features.jet_features.csv_vertexCategory);
     }
 
     auto muonTable = std::make_unique<nanoaod::FlatTable>(nmu_total, "muon", false, false);

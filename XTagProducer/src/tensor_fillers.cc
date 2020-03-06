@@ -24,17 +24,15 @@ namespace llpdnnx {
     *(++ptr) = features.cpf_features.size();
     *(++ptr) = features.npf_features.size();
     *(++ptr) = features.sv_features.size();
-    // variables from ShallowTagInfo
-    const auto& tag_info_features = features.tag_info_features;
-    *(++ptr) = tag_info_features.csv_trackSumJetEtRatio;
-    *(++ptr) = tag_info_features.csv_trackSumJetDeltaR;
-    *(++ptr) = tag_info_features.csv_vertexCategory;
-    *(++ptr) = tag_info_features.csv_trackSip2dValAboveCharm;
-    *(++ptr) = tag_info_features.csv_trackSip2dSigAboveCharm;
-    *(++ptr) = tag_info_features.csv_trackSip3dValAboveCharm;
-    *(++ptr) = tag_info_features.csv_trackSip3dSigAboveCharm;
-    *(++ptr) = tag_info_features.csv_jetNSelectedTracks;
-    *(++ptr) = tag_info_features.csv_jetNTracksEtaRel;
+    *(++ptr) = jet_features.csv_trackSumJetEtRatio;
+    *(++ptr) = jet_features.csv_trackSumJetDeltaR;
+    *(++ptr) = jet_features.csv_vertexCategory;
+    *(++ptr) = jet_features.csv_trackSip2dValAboveCharm;
+    *(++ptr) = jet_features.csv_trackSip2dSigAboveCharm;
+    *(++ptr) = jet_features.csv_trackSip3dValAboveCharm;
+    *(++ptr) = jet_features.csv_trackSip3dSigAboveCharm;
+    *(++ptr) = jet_features.csv_jetNSelectedTracks;
+    *(++ptr) = jet_features.csv_jetNTracksEtaRel;
   }
 
   void cpf_tensor_filler(tensorflow::Tensor& tensor,

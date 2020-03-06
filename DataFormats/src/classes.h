@@ -10,29 +10,48 @@ namespace {
 
     struct dictionary
     {
+        llpdnnx::JetFeatures JetFeaturesProduct;
+        std::vector<llpdnnx::JetFeatures> JetFeaturesVectorProduct;
+        edm::Wrapper<std::vector<llpdnnx::JetFeatures>> JetFeaturesVectorWrapperProduct;
+
+        llpdnnx::ChargedCandidateFeatures ChargedCandidateFeaturesProduct;
+        std::vector<llpdnnx::ChargedCandidateFeatures> ChargedCandidateFeaturesVectorProduct;
+        edm::Wrapper<std::vector<llpdnnx::ChargedCandidateFeatures>> ChargedCandidateFeaturesVectorWrapperProduct;
+
+        llpdnnx::NeutralCandidateFeatures NeutralCandidateFeaturesProduct;
+        std::vector<llpdnnx::NeutralCandidateFeatures> NeutralCandidateFeaturesVectorProduct;
+        edm::Wrapper<std::vector<llpdnnx::NeutralCandidateFeatures>> NeutralCandidateFeaturesVectorWrapperProduct;
+
+        llpdnnx::SecondaryVertexFeatures SecondaryVertexFeaturesProduct;
+        std::vector<llpdnnx::SecondaryVertexFeatures> SecondaryVertexFeaturesVectorProduct;
+        edm::Wrapper<std::vector<llpdnnx::SecondaryVertexFeatures>> SecondaryVertexFeaturesVectorWrapperProduct;
+        
+        llpdnnx::MuonCandidateFeatures MuonCandidateFeaturesProduct;
+        std::vector<llpdnnx::MuonCandidateFeatures> MuonCandidateFeaturesVectorProduct;
+        edm::Wrapper<std::vector<llpdnnx::MuonCandidateFeatures>> MuonCandidateFeaturesVectorWrapperProduct;
+        llpdnnx::ElectronCandidateFeatures ElectronCandidateFeaturesProduct;
+        std::vector<llpdnnx::ElectronCandidateFeatures> ElectronCandidateFeaturesVectorProduct;
+        edm::Wrapper<std::vector<llpdnnx::ElectronCandidateFeatures>> ElectronCandidateFeaturesVectorWrapperProduct;
+        
+        llpdnnx::DisplacedGenVertexCollection DisplacedGenVertexCollectionProduct;
+        edm::Wrapper<llpdnnx::DisplacedGenVertexCollection> DisplacedGenVertexCollectionWrapperProduct;
+        
+        edm::Ptr<llpdnnx::DisplacedGenVertex> DisplacedGenVertexProduct;
+        edm::Wrapper<edm::Ptr<llpdnnx::DisplacedGenVertex>> DisplacedGenVertexWrapperProduct;
+        
+        edm::Ptr<llpdnnx::DisplacedGenVertexCollection> DisplacedGenVertexPtrProduct;
+        edm::Wrapper<edm::Ptr<llpdnnx::DisplacedGenVertexCollection>> DisplacedGenVertexPtrWrapperProduct;
+
+        edm::PtrVector<llpdnnx::DisplacedGenVertexCollection> DisplacedGenVertexPtrVectorProduct;
+        edm::Wrapper<edm::PtrVector<llpdnnx::DisplacedGenVertexCollection>> DisplacedGenVertexPtrVectorWrapperProduct;
+
+        /*
         std::vector<reco::FeaturesTagInfo<llpdnnx::XTagFeatures>> dummy0;
         edm::Wrapper<std::vector<reco::FeaturesTagInfo<llpdnnx::XTagFeatures>>> dummy1;
 
         reco::FeaturesTagInfo<llpdnnx::XTagFeatures> dummy2;
         edm::Wrapper<reco::FeaturesTagInfo<llpdnnx::XTagFeatures>> dummy3;
-
-        llpdnnx::XTagFeatures dummy4;
-        llpdnnx::JetFeatures dummy5;
-        llpdnnx::SecondaryVertexFeatures dummy6;
-        llpdnnx::ChargedCandidateFeatures dummy7;
-        llpdnnx::NeutralCandidateFeatures dummy8;
-        llpdnnx::DisplacedGenVertexCollection dummy9;
-        edm::Wrapper<llpdnnx::DisplacedGenVertexCollection> dummy10;
-        
-        edm::Ptr<llpdnnx::DisplacedGenVertex> dummy11;
-        edm::Wrapper<edm::Ptr<llpdnnx::DisplacedGenVertex>> dummy12;
-        
-        edm::Ptr<llpdnnx::DisplacedGenVertexCollection> dummy13;
-        edm::Wrapper<edm::Ptr<llpdnnx::DisplacedGenVertexCollection>> dummy14;
-
-        edm::PtrVector<llpdnnx::DisplacedGenVertexCollection> dummy15;
-        edm::Wrapper<edm::PtrVector<llpdnnx::DisplacedGenVertexCollection>> dummy16;
-        
+      
         edm::PtrVector<reco::GenParticle> dummy17;
         edm::Wrapper<edm::PtrVector<reco::GenParticle>> dummy18;
         
@@ -54,6 +73,7 @@ namespace {
 
         llpdnnx::ElectronCandidateFeatures dummy31;
         llpdnnx::MuonCandidateFeatures dummy32;
+        */
 
     };
 

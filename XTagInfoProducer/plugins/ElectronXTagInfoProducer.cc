@@ -1,4 +1,4 @@
-//Description: Produces and fill in LLPDNNX features
+//Description: Produces and fill in electron LLPDNNX features
 
 #include <memory>
 #include "FWCore/Framework/interface/Frameworkfwd.h"
@@ -50,10 +50,10 @@
 #include "TVector3.h"
 
 
-class XTagInfoProducer : public edm::stream::EDProducer<> {
+class ElectronXTagInfoProducer : public edm::stream::EDProducer<> {
 public:
-    explicit XTagInfoProducer(const edm::ParameterSet&);
-    ~XTagInfoProducer();
+    explicit ElectronXTagInfoProducer(const edm::ParameterSet&);
+    ~ElectronXTagInfoProducer();
     static void fillDescriptions(edm::ConfigurationDescriptions& descriptions);
     
     struct CandidateHash
@@ -81,7 +81,7 @@ public:
         edm::EDGetTokenT< pat::ElectronCollection > electronsMiniAODToken_;
 };
 
-XTagInfoProducer::XTagInfoProducer(const edm::ParameterSet& iConfig) :
+ElectronXTagInfoProducer::ElectronXTagInfoProducer(const edm::ParameterSet& iConfig) :
     jet_token_(consumes<edm::View<pat::Jet>>(iConfig.getParameter<edm::InputTag>("jets"))),
     vtx_token_(consumes<reco::VertexCollection>(iConfig.getParameter<edm::InputTag>("vertices"))),
     sv_token_(consumes<reco::VertexCompositePtrCandidateCollection>(iConfig.getParameter<edm::InputTag>("secondary_vertices"))),
@@ -93,11 +93,11 @@ XTagInfoProducer::XTagInfoProducer(const edm::ParameterSet& iConfig) :
 }
 
 
-XTagInfoProducer::~XTagInfoProducer(){ }
-void XTagInfoProducer::beginStream(edm::StreamID) { }
+ElectronXTagInfoProducer::~ElectronXTagInfoProducer(){ }
+void ElectronXTagInfoProducer::beginStream(edm::StreamID) { }
 // ------------ method called to produce the data  ------------
     void
-XTagInfoProducer::produce(edm::Event& iEvent, const edm::EventSetup& iSetup)
+ElectronXTagInfoProducer::produce(edm::Event& iEvent, const edm::EventSetup& iSetup)
 {
     auto output_tag_infos = std::make_unique<XTagInfoCollection>();
     edm::Handle<edm::View<pat::Jet>> jets;
@@ -714,7 +714,7 @@ XTagInfoProducer::produce(edm::Event& iEvent, const edm::EventSetup& iSetup)
             }
             else
             {
-                npf_features.npf_relmassdrop = (jet.p4()- constituent->p4()).mass()/jet.mass();
+                npf_features.npf_relmassdrop = (jet.p4() - constituent->p4()).mass()/jet.mass();
             }
             features.npf_features.emplace_back(npf_features);
             
@@ -739,14 +739,14 @@ XTagInfoProducer::produce(edm::Event& iEvent, const edm::EventSetup& iSetup)
 }
 
 // ------------ method fills 'descriptions' with the allowed parameters for the module  ------------
-void XTagInfoProducer::fillDescriptions(edm::ConfigurationDescriptions& descriptions) {
+void ElectronXTagInfoProducer::fillDescriptions(edm::ConfigurationDescriptions& descriptions) {
     edm::ParameterSetDescription desc;
     desc.add<edm::InputTag>("jets", edm::InputTag("ak4PFJetsCHS"));
     desc.add<edm::InputTag>("vertices", edm::InputTag("offlinePrimaryVertices"));
     desc.add<edm::InputTag>("secondary_vertices", edm::InputTag("inclusiveCandidateSecondaryVertices"));
     desc.add<edm::InputTag>("shallow_tag_infos", edm::InputTag("pfDeepCSVTagInfos"));
 }
-void XTagInfoProducer::endStream() {};
+void ElectronXTagInfoProducer::endStream() {};
 
 //define this as a plug-in
-DEFINE_FWK_MODULE(XTagInfoProducer);
+DEFINE_FWK_MODULE(ElectronXTagInfoProducer);

@@ -1,6 +1,8 @@
 #ifndef LLPReco_DataFormats_ChargedCandidateFeatures_h
 #define LLPReco_DataFormats_ChargedCandidateFeatures_h
 
+#include "DataFormats/PatCandidates/interface/PackedCandidate.h"
+
 namespace llpdnnx {
 
 struct ChargedCandidateFeatures
@@ -29,15 +31,18 @@ struct ChargedCandidateFeatures
     float cpf_puppi_weight;
     float cpf_track_chi2;
     float cpf_track_quality;
-    int cpf_track_numberOfValidPixelHits ;
-    int cpf_track_pixelLayersWithMeasurement ;
-    int cpf_track_numberOfValidStripHits ;
+    int cpf_track_numberOfValidPixelHits;
+    int cpf_track_pixelLayersWithMeasurement;
+    int cpf_track_numberOfValidStripHits;
     int cpf_track_stripLayersWithMeasurement; 
     float cpf_relmassdrop;
 
     int cpf_matchedMuon;
     int cpf_matchedElectron;
     int cpf_matchedSV;
+    reco::CandidatePtr matchedMuonPtr;
+    reco::CandidatePtr matchedElectronPtr;
+
     int cpf_track_ndof;
 };
 

@@ -11,6 +11,15 @@
 <use   name="RecoBTag/TrackProbability"/>
 <use   name="TrackingTools/IPTools"/>
 <use   name="LLPReco/XTagInfoProducer"/>
-<library file="XTagInfoProducer.cc" name="XTagInfoProducerPlugin">
+<library file="JetFeatureXTagInfoProducer.cc" name="JetFeatureXTagInfoProducer">
+  <flags EDM_PLUGIN="1"/>
+</library>
+<library file="ChargedCandidateXTagInfoProducer.cc" name="ChargedCandidateXTagInfoProducer">
+  <flags EDM_PLUGIN="1"/>
+</library>
+<library file="NeutralCandidateXTagInfoProducer.cc" name="NeutralCandidateXTagInfoProducer.cc">
+  <flags EDM_PLUGIN="1"/>
+</library>
+<library file="SecondaryVertexXTagInfoProducer.cc" name="SecondaryVertexXTagInfoProducer.cc">
   <flags EDM_PLUGIN="1"/>
 </library>
